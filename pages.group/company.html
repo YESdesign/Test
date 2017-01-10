@@ -1,0 +1,47 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="page" limit="1"}
+    	{if title_tag_page}
+        	{title_tag_page}
+        {if:else}
+        	{title_content_page}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="page" limit="1"}{meta_description_page}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="page" limit="1"}{meta_robots_page}{/exp:channel:entries}"}
+{layout:set name="body_class" value="innerpage companypage"}
+
+{embed="includes/extra-nav"}
+
+<div class="container title">
+	<div class="row">
+		{exp:channel:entries channel="page" status="open|block search" limit="1"}
+		<div class="col-md-16 text-center">
+			<h1>{title_content_page}</h1>
+		</div>
+		<div class="col-md-12 col-md-offset-2 col-xs-14 col-xs-offset-1 text-center">
+			<div class="highlight">{subtitle_page}</div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+</div> <!-- .title -->
+
+<div class="slideshow-container">
+	<div class="slideshow">
+    	<div id="slider" class="royalSlider rsMinW">
+      		
+      		{exp:channel:entries channel="page" limit="1"}
+      		{gallery_page}
+      		<div>
+                <img src="{gallery_page:image:xl}" class="rsImg" alt="{if gallery_page:alt_image}{gallery_page:alt_image}{/if}" />
+      		</div>
+      		{/gallery_page}
+      		{/exp:channel:entries}
+                           
+        </div> <!-- #slider -->
+	</div> <!-- .slideshow -->
+</div> <!-- .slideshow-container -->
+
+{exp:channel:entries channel="page" status="open|block search" limit="1"}
+	{content_page}
+{/exp:channel:entries}

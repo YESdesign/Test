@@ -1,0 +1,38 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="page" limit="1"}
+    	{if title_tag_page}
+        	{title_tag_page}
+        {if:else}
+        	{title_content_page}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="page" limit="1"}{meta_description_page}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="page" limit="1"}{meta_robots_page}{/exp:channel:entries}"}
+{layout:set name="body_class" value="innerpage"}
+
+{embed="includes/extra-nav"}
+
+<div class="container title">
+	<div class="row">
+		{exp:channel:entries channel="page"}
+		<div class="col-md-16 text-center">
+			<h1>{title_content_page}</h1>
+		</div>
+		<div class="col-md-12 col-md-offset-2 col-xs-14 col-xs-offset-1 text-center">
+			<div class="highlight">{subtitle_page}</div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+</div> <!-- .title -->
+
+<div class="container images-grid images-grid-col-4 designers-grid">
+	<div class="row">
+		{exp:channel:entries channel="designer" orderby="name_designer" sort="asc" dynamic="off"}
+		<div class="col {switch='left|center-left|center-right|right'} col-md-4 col-sm-4 col-xs-8">
+			<h2><a href="{page_url}">{name_designer}</a></h2>
+			<div class="image"><a href="{page_url}"><img src="{image_designer:thumb}" alt="{name_designer}"><span class="gradient"></span></a></div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+</div>

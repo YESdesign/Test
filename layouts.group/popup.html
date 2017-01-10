@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{transcribe:language_abbreviation}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Midj</title>
+	<meta name="robots" content="noindex,nofollow" />
+	
+	<!-- TypeKit -->
+	<script src="//use.typekit.net/oez3tan.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+	
+	<!-- Bootstrap -->
+	<link href="{stylesheet=styles/bootstrap}" rel="stylesheet">
+	
+	<!-- Css -->
+	{exp:minimee:css}
+	<link href="{stylesheet=styles/royalslider}" rel="stylesheet">
+	<link href="{stylesheet=styles/jquery.fancybox}" rel="stylesheet">
+	<link href="{stylesheet=styles/bootstrap-select}" rel="stylesheet">
+	<link href="{stylesheet=styles/validationEngine.jquery}" rel="stylesheet">
+	<link href="{stylesheet=styles/midj}" rel="stylesheet">
+	{/exp:minimee:css}
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- Iubenda Code -->
+	<script type="text/javascript">
+		var _iub = _iub || [];
+		_iub.csConfiguration = {
+			cookiePolicyId: 253717,
+			siteId: 264255,
+			lang: "{transcribe:language_abbreviation}",
+			//consentOnScroll: false,
+			banner: {
+				content: "<p>{exp:transcribe:translate name=\"cookies-info\"}Midj.com utilizza %{cookie_policy_link} per garantire una migliore esperienza sul sito e per la profilazione delle scelte dell’utente. Continuando a navigare acconsenti al loro utilizzo.{/exp:transcribe:translate}</p>",
+				cookiePolicyLinkCaption: "cookies",
+				backgroundColor: "#3E3E3E",
+				applyStyles: false,
+			}
+		};
+		(function (w, d) {
+			var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js"; tag.parentNode.insertBefore(s, tag); };
+			if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; }
+		})(window, document);
+	</script>
+	<!-- End Iubenda Code -->
+	
+	{embed="includes/google-analytics"}
+	
+</head>
+<body>
+	
+	<div class="page">
+		
+		{layout:contents}	
+		
+	</div> <!-- .page -->
+	
+	{exp:minimee:js}
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="{path=js/bootstrap}"></script>
+	
+	<!-- Js -->
+	<script src="{path=js/jquery.fancybox.pack}"></script>
+	<script src="{path=js/bootstrap-select.min}"></script>
+	<script src="{path=js/midj-retailers}"></script>
+	<script src="{path=js/jquery.royalslider.min}"></script>
+	<script src="{path=js/jquery.validationEngine}"></script>
+	{if transcribe:language_abbreviation == "it"}
+		<script src="{path=js/jquery.validationEngine-it}"></script>
+	{if:else}
+		<script src="{path=js/jquery.validationEngine-en}"></script>
+	{/if}
+	<script src="{path=js/midj}"></script>
+	{/exp:minimee:js}
+	
+</body>
+</html>

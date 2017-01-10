@@ -1,0 +1,92 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="designer" limit="1"}
+    	{if title_tag_designer}
+        	{title_tag_designer}
+        {if:else}
+        	{name_designer}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="designer" limit="1"}{meta_description_designer}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="designer" limit="1"}{meta_robots_designer}{/exp:channel:entries}"}
+{layout:set name="body_class" value="innerpage designerpage"}
+
+{embed="includes/extra-nav"}
+
+<div class="container title">
+	<div class="row">
+		<div class="col-md-16 text-center">
+			{exp:channel:entries channel="designer" limit="1"}
+			<h1>{name_designer}</h1>
+			{/exp:channel:entries}
+		</div>
+	</div>
+</div> <!-- .title -->
+
+<div class="container designer">
+	<div class="row">
+		<div class="designer-image col-md-8 col-sm-8 col-xs-16">
+			{exp:channel:entries channel="designer" limit="1"}
+			<div class="image"><a href=""><img src="{image_designer:m}" alt="{name_designer}"><span class="gradient"></span></a></div>
+			{/exp:channel:entries}
+		</div>
+		<div class="col-md-8 col-sm-8 col-xs-16">
+			<div class="text">
+				{exp:channel:entries channel="designer" limit="1"}
+				{content_designer}
+				<p><a href="http://{link_designer}" class="blank">{link_designer}</a></p>
+				{/exp:channel:entries}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-16 text-center">
+			<div class="text">
+				<h3 class="products-grid-title">{exp:transcribe:translate name="prodotti-disegnati"}Prodotti disegnati{/exp:transcribe:translate}</h3>
+			</div>
+		</div>
+	</div>
+	
+	<div class="products-grid">
+		<div class="row row-centered">
+			{exp:channel:entries channel="designer" limit="1"}
+			{parents field="designer_collection" status="open|block search"}
+			
+				{parents:products_collection}
+			
+					{parents:products_collection:designer_chair}
+						{if parents:products_collection:designer_chair:no_results}
+						
+						<div class="product col-centered col-md-3 col-sm-3 col-xs-8">
+							<div class="image"><a href="{parents:products_collection:page_url}"><img src="{parents:products_collection:image_chair:thumb}{parents:products_collection:image_stool:thumb}{parents:products_collection:image_lounge:thumb}{parents:products_collection:image_table:thumb}{parents:products_collection:image_bistrot_table:thumb}{parents:products_collection:image_coffee_table:thumb}" alt="{parents:products_collection:name_chair}{parents:products_collection:name_stool}{parents:products_collection:name_lounge}{parents:products_collection:name_table}{parents:products_collection:name_bistrot_table}{parents:products_collection:name_coffee_table}"></a></div>
+							<h2><a href="{parents:products_collection:page_url}">{parents:products_collection:name_chair}{parents:products_collection:name_stool}{parents:products_collection:name_lounge}{parents:products_collection:name_table}{parents:products_collection:name_bistrot_table}{parents:products_collection:name_coffee_table}</a></h2>
+						</div>
+						{/if}
+					{/parents:products_collection:designer_chair}
+				
+				{/parents:products_collection}
+			
+			{/parents}
+			{/exp:channel:entries}
+			
+			
+			{exp:channel:entries channel="designer" limit="1"}
+			{parents field="designer_chair" status="open|block search"}
+			
+			{if {parents:count}}
+				<div class="product col-centered col-md-3 col-sm-3 col-xs-8">
+					<div class="image"><a href="{parents:page_url}"><img src="{parents:image_chair:thumb}{parents:image_stool:thumb}{parents:image_lounge:thumb}{parents:image_table:thumb}{parents:image_bistrot_table:thumb}{parents:image_coffee_table:thumb}" alt="{parents:name_chair}{parents:name_stool}{parents:name_lounge}{parents:name_table}{parents:name_bistrot_table}{parents:name_coffee_table}"></a></div>
+					<h2><a href="{parents:products_collection:page_url}">{parents:name_chair}{parents:name_stool}{parents:name_lounge}{parents:name_table}{parents:name_bistrot_table}{parents:name_coffee_table}</a></h2>
+				</div>				
+			{/if}
+			
+			{/parents}
+			{/exp:channel:entries}
+			
+		</div>
+	</div>
+	
+</div>

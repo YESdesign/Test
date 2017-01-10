@@ -1,0 +1,63 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="blog" limit="1"}
+    	{if title_tag_blog}
+        	{title_tag_blog}
+        {if:else}
+        	{title_content_blog}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="blog" limit="1"}{meta_description_blog}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="blog" limit="1"}{meta_robots_blog}{/exp:channel:entries}"}
+{layout:set name="body_class" value="innerpage postpage"}
+
+{embed="includes/extra-nav"}
+
+<div class="container title">
+	<div class="row">
+		{exp:channel:entries channel="page" entry_id="15|46"}
+		<div class="col-md-16 text-center">
+			<div class="h1">{title_content_page}</div>
+		</div>
+		<div class="col-md-12 col-md-offset-2 col-xs-14 col-xs-offset-1 text-center"></div>
+		{/exp:channel:entries}
+	</div>
+</div> <!-- .title -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-11 col-sm-10 col-xs-16">
+			
+			{exp:channel:entries channel="blog" limit="1"}
+			<div class="post text">
+				<h1>{title_content_blog}</h1>
+				<div class="meta">{exp:transcribe:translate name="pubblicato-il"}Pubblicato il{/exp:transcribe:translate} {entry_date format='%d/%m/%Y'} in {categories}<a href="{exp:transcribe:uri path='blog/'}c/{category_url_title}">{exp:transcribe:replace name="category_{category_url_title}"}</a>{/categories}</div>
+				<div class="post-content">
+					<div class="post-image"><img src="{cover_image_blog}" alt="{title_content_blog}"></div>
+					{content_blog}
+					
+					{if {gallery_blog:total_rows}}
+					<div class="row gallery">
+					{gallery_blog}
+						<div class="gallery-image col-md-5 col-sm-5 col-xs-8">
+							<div class="image"><a href="{gallery_blog:image:l}" rel="post-gallery"><img src="{gallery_blog:image:thumb}" alt="{gallery_blog:alt_image}"></a></div>
+						</div>
+					{/gallery_blog}								
+					</div>
+					{/if}
+					
+					<div class="post-share">
+						<h5>{exp:transcribe:translate name="condividi-post"}Condividi questo articolo{/exp:transcribe:translate}</h5>
+						<div class="addthis_sharing_toolbox"></div>
+					</div>
+					
+				</div>
+			</div> <!-- .post -->
+			{/exp:channel:entries}
+			
+		</div>
+		
+		{embed="includes/sidebar-blog"}
+		
+	</div>
+</div>

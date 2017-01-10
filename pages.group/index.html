@@ -1,0 +1,65 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="page" entry_id="1" limit="1"}
+    	{if title_tag_page}
+        	{title_tag_page}
+        {if:else}
+        	{title_content_page}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="page" limit="1" entry_id="1"}{meta_description_page}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="page" limit="1" entry_id="1"}{meta_robots_page}{/exp:channel:entries}"}
+{layout:set name="body_class" value="homepage"}
+
+
+<div class="slideshow-container">
+	<div class="slideshow">
+    	<div id="slider" class="royalSlider rsMinW">
+
+    	{exp:channel:entries channel="slide" orderby="order_slide" sort="asc" dynamic="off"}
+            <div>
+                <img src="{image_slide:xxl}" class="rsImg" alt="{title_slide}" />
+                <div class="info-block rsCaption">
+               		<h2>{title_slide}</h2>
+			   		{content_slide}
+			   		{link_slide}{if count}<div class="more-container"><div class="more"><a href="{link_slide:page_url}">{exp:transcribe:translate name="scopri"}Scopri di più{/exp:transcribe:translate}<span class="glyphicon glyphicon-menu-right"></span></a></div></div>{/if}{/link_slide}
+                </div>
+      		</div>
+      	{/exp:channel:entries}
+
+        </div> <!-- #slider -->
+	</div> <!-- .slideshow -->
+</div> <!-- .slideshow-container -->
+
+<div class="container images-grid images-grid-col-3">
+	<div class="row">
+
+		{exp:structure:entries channel="type" orderby="entry_date" sort="asc" include_hidden="yes" dynamic="off"}
+		<div class="col {switch='left|center|right'} {switch='left-xs|right-xs'} col-md-5 col-sm-5 col-xs-8">
+			<h2><a href="{page_url}">{name_type}</a></h2>
+			<div class="image"><a href="{page_url}"><img src="{image_type:s}" alt="{name_type}"></a></div>
+		</div>
+		{/exp:structure:entries}
+
+	</div>
+</div>
+
+<div class="container images-grid images-grid-col-2 videos-container">
+	<div class="row">
+		<div class="col-md-16 text-center">
+			<div class="text">
+				<h3>{exp:transcribe:translate name="video"}Video{/exp:transcribe:translate}</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		{exp:channel:entries channel="video" orderby="entry_date|name_video" sort="desc|asc" limit="2" dynamic="off"}
+		<div class="col {switch='left|right'} col-md-8 col-sm-8 col-xs-16">
+			<div class="image video"><a href="https://www.youtube.com/embed/{id_video}?autoplay=1&modestbranding=1&autohide=1&fs=0&rel=0&theme=light" class="fancybox.iframe" title="{name_video}"><img src="{image_video:thumb-m}" alt="{name_video}"> <div class="play-btn"></div></a></div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+	<div class="col-md-16 text-center">
+		<div class="more"><a href="{exp:transcribe:uri path="video" trim_slashes="yes"}">{exp:transcribe:translate name="scopri-tutti-i-video"}Scopri tutti i video{/exp:transcribe:translate}<span class="glyphicon glyphicon-menu-right"></span></a></div>
+	</div>
+</div>

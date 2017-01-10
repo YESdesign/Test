@@ -1,0 +1,94 @@
+{layout="layouts/default"}
+{layout:set name="title_tag" value="{exp:channel:entries channel="page" limit="1"}
+    	{if title_tag_page}
+        	{title_tag_page}
+        {if:else}
+        	{title_content_page}
+        {/if}
+    {/exp:channel:entries}"
+}
+{layout:set name="meta_description" value="{exp:channel:entries channel="page" limit="1"}{meta_description_page}{/exp:channel:entries}"}
+{layout:set name="meta_robots" value="{exp:channel:entries channel="page" limit="1"}{meta_robots_page}{/exp:channel:entries}"}
+{layout:set name="body_class" value="innerpage blogpage"}
+
+{embed="includes/extra-nav"}
+
+<div class="container title">
+	<div class="row">
+		{exp:channel:entries channel="page"}
+		<div class="col-md-16 text-center">
+			<h1>{title_content_page}{if freebie_2 != ""}: {exp:transcribe:translate name="articoli-categoria"}articoli per la categoria{/exp:transcribe:translate} &laquo;{exp:freebie:category_name segment='3'}&raquo;{/if}</h1>
+		</div>
+		<div class="col-md-12 col-md-offset-2 col-xs-14 col-xs-offset-1 text-center"></div>
+		{/exp:channel:entries}
+	</div>
+</div> <!-- .title -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-11 col-sm-10 col-xs-16">
+			
+		{if freebie_2 == ""}
+		
+			{exp:channel:entries channel="blog" orderby="entry_date" sort="desc" dynamic="off"}
+			
+			<div class="post text {if count == total_results}last{/if}">
+				<h2><a href="{page_url}">{title_content_blog}</a></h2>
+				<div class="meta">{exp:transcribe:translate name="pubblicato-il"}Pubblicato il{/exp:transcribe:translate} {entry_date format='%d/%m/%Y'} in {categories}<a href="{exp:transcribe:uri path='blog/'}c/{category_url_title}">{exp:transcribe:replace name="category_{category_url_title}"}</a>{/categories}</div>
+				<div class="post-content">
+					<div class="post-image"><a href="{page_url}"><img src="{cover_image_blog}" alt=""></a></div>
+					<p>{excerpt_blog}</p>
+				</div>
+				<div class="read-more"><a href="{page_url}">{exp:transcribe:translate name="leggi-tutto"}Leggi tutto{/exp:transcribe:translate}<span class="glyphicon glyphicon-menu-right"></span></a></div>
+			</div> <!-- .post -->
+			
+			{paginate}
+			<div class="paging">
+			    {pagination_links}
+			    <ul class="pagination">               		
+					{previous_page}<li><a href="{pagination_url}"><span class="glyphicon glyphicon-menu-left"></span></a></li>{/previous_page}
+					{page}<li {if current_page}class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
+					{next_page}<li><a href="{pagination_url}" aria-label="Next"><span class="glyphicon glyphicon-menu-right"></span></a></li>{/next_page}
+				</ul>
+				{/pagination_links}
+			</div>
+			{/paginate}
+			
+			{/exp:channel:entries}
+			
+		{if:else}
+		
+			{exp:channel:entries channel="blog" category="{exp:freebie:category_id segment='3'}" parse="inward" orderby="entry_date" sort="desc" dynamic="off"}
+			
+			<div class="post text {if count == total_results}last{/if}">
+				<h2><a href="{page_url}">{title_content_blog}</a></h2>
+				<div class="meta">{exp:transcribe:translate name="pubblicato-il"}Pubblicato il{/exp:transcribe:translate} {entry_date format='%d/%m/%Y'} in {categories}<a href="{exp:transcribe:uri path='blog/'}c/{category_url_title}">{exp:transcribe:replace name="category_{category_url_title}"}</a>{/categories}</div>
+				<div class="post-content">
+					<div class="post-image"><a href="{page_url}"><img src="{cover_image_blog}" alt=""></a></div>
+					<p>{excerpt_blog}</p>
+				</div>
+				<div class="read-more"><a href="{page_url}">{exp:transcribe:translate name="leggi-tutto"}Leggi tutto{/exp:transcribe:translate}<span class="glyphicon glyphicon-menu-right"></span></a></div>
+			</div> <!-- .post -->
+			
+			{paginate}
+			<div class="paging">
+			    {pagination_links}
+			    <ul class="pagination">               		
+					{previous_page}<li><a href="{pagination_url}"><span class="glyphicon glyphicon-menu-left"></span></a></li>{/previous_page}
+					{page}<li {if current_page}class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
+					{next_page}<li><a href="{pagination_url}" aria-label="Next"><span class="glyphicon glyphicon-menu-right"></span></a></li>{/next_page}
+				</ul>
+				{/pagination_links}
+			</div>
+			{/paginate}
+			
+			{/exp:channel:entries}
+			
+		{/if}
+			
+		</div>
+		
+		{embed="includes/sidebar-blog"}
+		
+	</div>
+</div>

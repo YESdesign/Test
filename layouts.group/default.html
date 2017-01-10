@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="{transcribe:language_abbreviation}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{embed="includes/hreflang"}
+
+	<title>{layout:title_tag} | Midj</title>
+	{if layout:meta_description}<meta name="description" content="{layout:meta_description}" />{/if}
+	{if layout:meta_robots}<meta name="robots" content="{layout:meta_robots}" />{/if}
+
+	<!-- TypeKit -->
+	<script src="//use.typekit.net/oez3tan.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+
+	<!-- Bootstrap -->
+	<link href="{stylesheet=styles/bootstrap}" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{site_url}images/static/icons/favicon.ico">
+	<link rel="apple-touch-icon" href="{site_url}images/static/icons/50x50.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="{site_url}images/static/icons/72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="{site_url}images/static/icons/114x114.png">
+
+	{if layout:body_class == "homepage"}
+	<meta name="p:domain_verify" content="4afd760e9deb6dcbb055c0cb07da0557"/>
+	{/if}
+
+	{embed="includes/open-graph"}
+
+	<!-- Css -->
+	{exp:minimee:css}
+	<link href="{stylesheet=styles/royalslider}" rel="stylesheet">
+	{if layout:body_class == "innerpage productpage" || layout:body_class == "innerpage postpage" || layout:body_class == "innerpage videospage" || layout:body_class == "innerpage companypage" || layout:body_class == "homepage" || layout:body_class == "innerpage projectpage" || layout:body_class == "innerpage retailerspage"}
+		<link href="{stylesheet=styles/jquery.fancybox}" rel="stylesheet">
+	{/if}
+	{if layout:body_class == "innerpage retailerspage"}
+	<link href="{stylesheet=styles/bootstrap-select}" rel="stylesheet">
+	{/if}
+	<link href="{stylesheet=styles/validationEngine.jquery}" rel="stylesheet">
+	<link href="{stylesheet=styles/midj}" rel="stylesheet">
+	{/exp:minimee:css}
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- {exp:transcribe:language_links}
+	{languages}
+		{if !current}
+			<link rel="alternate" hreflang="{abbreviation}" href="{exp:transcribe:uri entry_id="1"}">
+			{rel:entry_id}
+		{/if}
+    {/languages}
+	{/exp:transcribe:language_links} -->
+
+	{if layout:body_class == "innerpage blogpage" || layout:body_class == "innerpage postpage"}
+		<!-- Facebook Like Box Code -->
+		<div id="fb-root"></div>
+		<script class="_iub_cs_activate" type="text/plain">(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&appId=1456763737872150&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<!-- end Facebook Like Box Code -->
+	{/if}
+
+	<!-- Iubenda Code -->
+	<script type="text/javascript">
+		var _iub = _iub || [];
+		_iub.csConfiguration = {
+			cookiePolicyId: 253717,
+			siteId: 264255,
+			lang: "{transcribe:language_abbreviation}",
+			//consentOnScroll: false,
+			banner: {
+				content: "<p>{exp:transcribe:translate name=\"cookies-info\"}Midj.com utilizza %{cookie_policy_link} per garantire una migliore esperienza sul sito e per la profilazione delle scelte dell’utente. Continuando a navigare acconsenti al loro utilizzo.{/exp:transcribe:translate}</p>",
+				cookiePolicyLinkCaption: "cookies",
+				backgroundColor: "#3E3E3E",
+				applyStyles: false,
+			}
+		};
+		(function (w, d) {
+			var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js"; tag.parentNode.insertBefore(s, tag); };
+			if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; }
+		})(window, document);
+	</script>
+	<!-- End Iubenda Code -->
+
+	{embed="includes/google-analytics"}
+
+	{embed="includes/fb-custom-audience"}
+
+</head>
+<body {if layout:body_class}class="{layout:body_class}"{/if}>
+
+	<header>
+		<div class="top-header container hidden-xs hidden-print">
+			<div class="row">
+				<div class="col-md-8 col-sm-8">
+					<nav>
+						{exp:structure:nav include="1|14|15|16|17|45|46|47|1082|1083|1965|2000|1999|1968|1976" max_depth="1" css_id="none" current_class="active" channel:title="page:title_content_page"}
+					</nav>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<div class="lang-nav text-right">
+						{exp:transcribe:language_links}
+						<ul>
+							{languages}
+					            <li id="lang-{abbreviation}" {if current} class="active"{/if}><a href="{exp:transcribe:uri path='{link}' parse='inward' trim_slashes='yes'}">{abbreviation}</a></li>
+					        {/languages}
+						</ul>
+						{/exp:transcribe:language_links}
+					</div> <!-- .lang-nav -->
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<div class="search">
+						<form method="post" action="{if transcribe:language_abbreviation == "it"}{exp:transcribe:uri path='cerca/risultati'}{if:else}{exp:transcribe:uri path='search/results'}{/if}">
+							<input type="hidden" name="csrf_token" value="{csrf_token}" />
+							<input type="hidden" name="title" value="{transcribe:language_abbreviation}">
+							<div class="form-group">
+								<input type="text" name="keywords" id="keywords" class="form-control validate[required,minSize[3]]" placeholder="{exp:transcribe:translate name="cerca"}Cerca{/exp:transcribe:translate}...">
+							</div>
+							<button type="submit" class="btn btn-default">{exp:transcribe:translate name="cerca"}Cerca{/exp:transcribe:translate}</button>
+						</form>
+					</div> <!-- .search -->
+				</div>
+			</div>
+		</div> <!-- .top-header -->
+
+		<div class="logo container">
+			<div class="row">
+				<div class="col-xs-4 visible-xs open-nav"><a href="#"><span class="glyphicon glyphicon glyphicon-align-justify"></span></a></div>
+				<div class="col-md-16 col-sm-16 col-xs-8 text-center">{if layout:body_class == "homepage"}<h1>{/if}<a href="{exp:transcribe:uri trim_slashes="yes"}"><img src="{site_url}images/static/midj-in-italy.jpg" width="116" height="81" alt="Midj in Italy"></a>{if layout:body_class == "homepage"}</h1>{/if}</div>
+				<div class="col-xs-4 text-right visible-xs open-search"><a href="#"><span class="glyphicon glyphicon-search"></span></a></div>
+			</div>
+		</div> <!-- .logo -->
+
+		<!-- Mobile Nav + Mobile Search -->
+		<div class="main-nav-mobile clearfix container-fluid hidden-md hidden-sm hidden-lg hidden-print">
+			<div class="row">
+				<div class="col-xs-16">
+					<nav>
+						{exp:structure:nav max_depth="1" css_id="none" current_class="active" channel:title="page:title_content_page"}
+					</nav>
+					<div class="lang-nav-mobile">
+						Cambia lingua
+						{exp:transcribe:language_links}
+						<ul>
+							{languages}
+					            <li {if current} class="active"{/if}><a href="{link}">{abbreviation}</a></li>
+					        {/languages}
+						</ul>
+						{/exp:transcribe:language_links}
+					</div> <!-- .lang-nav-mobile -->
+				</div>
+			</div>
+		</div>
+
+		<div class="search-mobile clearfix container-fluid hidden-md hidden-sm hidden-lg">
+			<div class="row">
+				<div class="col-xs-16">
+					<form method="post" action="{if transcribe:language_abbreviation == "it"}{exp:transcribe:uri path='cerca/risultati'}{if:else}{exp:transcribe:uri path='search/results'}{/if}">
+						<input type="hidden" name="csrf_token" value="{csrf_token}" />
+						<input type="hidden" name="title" value="{transcribe:language_abbreviation}">
+						<div class="form-group">
+							<input type="text" name="keywords" id="keywords" class="form-control validate[required,minSize[3]]" placeholder="{exp:transcribe:translate name="cerca"}Cerca{/exp:transcribe:translate}...">
+						</div>
+						<button type="submit" class="btn btn-default">{exp:transcribe:translate name="cerca"}Cerca{/exp:transcribe:translate}</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- end Mobile Nav + Mobile Search -->
+
+		<div class="main-nav container hidden-xs hidden-print">
+			<div class="row">
+				<div class="col-md-16 text-center">
+					<nav>
+						{exp:structure:nav include="6|11|4|39|12|13|40|42|43|44|1967|1996|1997|1998|1978" max_depth="1" css_id="none" current_class="active" channel:title="page:title_content_page"}
+					</nav>
+				</div>
+			</div>
+		</div> <!-- .main-nav -->
+	</header>
+
+	{if layout:body_class != "homepage"}<div class="container header-separator"></div></div>{/if}
+
+	<div class="page">
+
+		{layout:contents}
+
+	</div> <!-- .page -->
+
+	<div class="cta hidden-print">
+		<div class="container">
+			<div class="row">
+				<div class="cta-block cta-block-phone col-xs-16 visible-xs">
+					<h5><span class="glyphicon glyphicon-earphone"></span> +39 0434 690122</h5>
+				</div>
+				<div class="cta-block cta-block-newsletter col-md-8 col-sm-16 col-xs-16">
+					<h4>{exp:transcribe:translate name="iscriviti-alla-newsletter"}Iscriviti alla newsletter{/exp:transcribe:translate}</h4>
+					<div class="subtitle">{exp:transcribe:translate name="rimani-connesso"}Rimani connesso per tutte le novità{/exp:transcribe:translate}</div>
+					{exp:freeform:form
+				       form:novalidate="novalidate"
+				       form:class="subscribe-newsletter-form"
+				       form_name="subscribe_newsletter"
+				       required="email"
+				       return="{if transcribe:language_abbreviation == "it"}it/newsletter/grazie{if:else}newsletter/thanks{/if}"
+				    }
+				    	{exp:subscriber:form form_id="2"}
+						<input type="hidden" name="lang" id="lang" value="{transcribe:language_abbreviation}">
+
+						<div class="form-group">
+							<input type="text" name="email" id="email" class="form-control validate[required,custom[email]]" placeholder="{exp:transcribe:translate name="inserisci-email"}Inserisci la tua email{/exp:transcribe:translate}...">
+						</div>
+						<input type="submit" class="btn btn-default" value="{exp:transcribe:translate name="iscriviti"}Iscriviti{/exp:transcribe:translate}">
+					{/exp:freeform:form}
+				</div>
+				<div class="cta-block cta-block-blog col-md-4 col-sm-8 col-xs-16">
+					<h4>{exp:transcribe:translate name="blog"}Blog{/exp:transcribe:translate}</h4>
+					<div class="subtitle">{exp:transcribe:translate name="notizie-recenti"}Le notizie più recenti di Midj{/exp:transcribe:translate}</div>
+					<ul class="links text-center">
+						{exp:channel:entries channel="blog" orderby="entry_date" sort="desc" dynamic="off" limit="3"}
+						<li><a href="{page_url}">{title_content_blog}</a></li>
+						{/exp:channel:entries}
+					</ul>
+				</div>
+				<div class="cta-block cta-block-social last col-md-4 col-sm-8 col-xs-16">
+					<h4>{exp:transcribe:translate name="seguici"}Seguici{/exp:transcribe:translate}</h4>
+					<div class="subtitle">{exp:transcribe:translate name="seguici-social"}Seguici sui Social Network{/exp:transcribe:translate}</div>
+					<div class="social-icons">
+						<div class="fb"><a href="https://www.facebook.com/midjdesign" class="blank"></a></div>
+			    		<div class="tw"><a href="https://twitter.com/midjinitaly" class="ir blank"></a></div>
+			    		<div class="gp"><a href="https://plus.google.com/+MidjIt" class="blank"></a></div>
+			    		<div class="pin"><a href="https://it.pinterest.com/midjinitaly/" class="blank"></a></div>
+			    		<div class="in"><a href="https://www.linkedin.com/company/midj-srl" class="blank"></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+			<div class="back-to-top">
+				<a href="#">{exp:transcribe:translate name="torna-su"}torna su{/exp:transcribe:translate}<span class="glyphicon glyphicon-arrow-up"></span></a>
+			</div>
+			</div>
+		</div>
+	</div> <!-- .cta -->
+
+	<footer class="container hidden-print">
+		<div class="row">
+			<div class="copyright col-md-10 col-sm-16 col-xs-16">
+				&copy; 2015 {exp:transcribe:translate name="copyright"}Tutti i diritti riservati. Midj S.p.a. - P.Iva IT01102740931{/exp:transcribe:translate} - {exp:transcribe:translate name="design"}realizzato da{/exp:transcribe:translate} <a href="http://www.yesdesign.it" class="blank">YESdesign</a>
+			</div>
+			<div class="legal col-md-6 col-sm-16 col-xs-16 text-right">
+				<nav>
+				{exp:structure:nav include="196|197" override_hidden_state="yes" status="open|block search" css_id="none" channel:title="page:title_content_page"}
+				</nav>
+			</div>
+		</div>
+	</footer>
+
+
+	{exp:minimee:js}
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="{path=js/bootstrap}"></script>
+
+	<!-- Js -->
+	{if layout:body_class == "innerpage productpage" || layout:body_class == "innerpage postpage" || layout:body_class == "innerpage videospage" || layout:body_class == "innerpage companypage"|| layout:body_class == "homepage" || layout:body_class == "innerpage projectpage" || layout:body_class == "innerpage retailerspage"}
+	<script src="{path=js/jquery.fancybox.pack}"></script>
+	{/if}
+	{if layout:body_class == "innerpage retailerspage"}
+	<script src="{path=js/bootstrap-select.min}"></script>
+	<script src="{path=js/midj-retailers}"></script>
+	{/if}
+	<script src="{path=js/jquery.royalslider.min}"></script>
+	<script src="{path=js/jquery.validationEngine}"></script>
+	{if transcribe:language_abbreviation == "it"}
+		<script src="{path=js/jquery.validationEngine-it}"></script>
+	{if:else}
+		<script src="{path=js/jquery.validationEngine-en}"></script>
+	{/if}
+	<script src="{path=js/midj}"></script>
+	{/exp:minimee:js}
+
+	{embed="includes/addthis"}
+
+</body>
+</html>

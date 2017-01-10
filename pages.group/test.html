@@ -1,0 +1,18 @@
+{exp:channel:entries limit="1" dynamic="no" entry_id="242"}
+
+	hreflang="en" href="{exp:transcribe:uri path='{page_uri}' lang='en' trim_slashes='yes'}<br>
+	hreflang="it" href="{exp:transcribe:uri path='{page_uri}' lang='it' trim_slashes='yes'}<br>
+{!--	{exp:transcribe:language_links}
+		{languages}
+			{if !current}
+			<pre>
+				<link rel="alternate" hreflang="{abbreviation}" href="{exp:transcribe:uri path='{structure:page:uri}' lang='{abbreviation}' trim_slashes='yes'}"/>
+				<link toms="yes" rel="alternate" hreflang="{abbreviation}" href="{exp:transcribe:uri path='{page_url}' entry_id='{entry_id}' lang='{abbreviation}' trim_slashes='yes'}"/>
+			</pre>
+			{if:else}
+								<link toms="yes" rel="alternate" hreflang="{abbreviation}" href="{exp:transcribe:uri path='{page_url}' lang='{abbreviation}' trim_slashes='yes'}"/>
+
+			{/if}
+		{/languages}
+	{/exp:transcribe:language_links}--}
+{/exp:channel:entries}
